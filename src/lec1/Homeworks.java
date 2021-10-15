@@ -11,7 +11,7 @@ import java.util.Scanner;
 import static lec1.ShortPrint.print;
 
 public class Homeworks {
-
+    //homeworks
 
     //odev 1
     public class Hw1{
