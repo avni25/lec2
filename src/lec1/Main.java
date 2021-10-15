@@ -35,6 +35,9 @@ public class Main {
 		print("asda");
 		print("asda");
 
+		print("asda");
+		print("asda");
+
 	}
 
 
