@@ -52,7 +52,7 @@ public class Student {
 
 
     }
-
+    //asdasd
     @Override
     public String toString() {      // toString() fonk override
         return "Student{" +
