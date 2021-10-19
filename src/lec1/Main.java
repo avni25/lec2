@@ -30,8 +30,11 @@ public class Main {
 // 		//soru 2
 // 		Homeworks.Hw2.showEmojis(50,50);
 
+		//gjhgjhgj
 
+		print("qeqwe");
 
+		Homeworks.Hw1.generateRandomNumber(10);
 
 	}
 

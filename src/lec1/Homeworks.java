@@ -15,7 +15,7 @@ public class Homeworks {
 
     //odev 1
     public class Hw1{
-        /*
+        /**
          * calculates two given number according to string's operator.
          *
          * */
@@ -58,7 +58,7 @@ public class Homeworks {
             return (int)(Math.random()*max);
         }
 
-        /*
+        /**
          * Generates number between two given values
          * including min value, but excluding max value
          * */
@@ -66,7 +66,7 @@ public class Homeworks {
             return (int) (Math.random() * (max - min)) + min;
         }
 
-        /*
+        /**
          * tries to guess computer's random number which is generated
          * between min and max values. it cotinues until finding the correct number.
          * */
@@ -122,7 +122,9 @@ public class Homeworks {
     public class Hw2{
 
 
-        // SOru 4
+        /**
+         * Soru 4
+         * */
         public static void addStudents(List<Student> s_list) throws IDnoException{
             print(consoleColors.BLUE);				//console text color = Blue
             Scanner sc = new Scanner(System.in);
@@ -161,13 +163,17 @@ public class Homeworks {
             }
         }
 
-        //Student listesini ekrana yazdirir
+        /**
+         * Student listesini ekrana yazdirir
+         * */
         public static void printStudentList(List<Student> l){
             for(int i=0; i<l.size();i++)
                 print(l.get(i));
         }
 
-        //swing kutuphanesi kullanilarak olusturulmustur
+        /**
+         * swing kutuphanesi kullanilarak olusturulmustur
+         * */
         public static void addStudentsUsingGUI(List<Student> l) {
 
             JFrame f = new JFrame("new window");			//frame nesnesi olusturur
@@ -228,7 +234,9 @@ public class Homeworks {
 
         }
 
-        //Soru 3
+        /**
+         * Soru 3
+         * */
         public static  void findCity(){
             String[] cities = {"ANTALYA", "BURSA", "IZMIR", "MUGLA","ANKARA", "EDIRNE", "ISTANBUL","TRABZON","GIRESUN"};
             int a = Homeworks.Hw1.generateRandomNumber(0, cities.length);  // iki deger arasinda random sayi uretir
@@ -275,7 +283,9 @@ public class Homeworks {
 
         }
 
-        // Soru 2
+        /**
+         * Soru 2
+         * */
         public static void showEmojis(int width, int height){
             String[] image_file_names = {"angel.png","basketball.png","bicycle.png", "car.png","pawn.png","rainbow.png", "sad.png","smile.png","tree.png","umbrella.png"};
 
