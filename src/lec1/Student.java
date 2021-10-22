@@ -1,6 +1,9 @@
 package lec1;
 
-public class Student {
+import javax.swing.*;
+import java.util.Objects;
+
+public class Student implements Comparable<Student>{
     private int idno;
     private String name;
     private String surname;
@@ -52,6 +55,24 @@ public class Student {
 
 
     }
+
+    public void show(){
+        String s = this.toString();
+        JOptionPane.showMessageDialog(null,s, "Student",JOptionPane.PLAIN_MESSAGE);
+
+    }
+
+
+    @Override
+    public int compareTo(Student s){
+        if(s.idno == this.idno)
+            return 1;
+        else
+            return 0;
+
+    }
+
+
     //asdasd
     @Override
     public String toString() {      // toString() fonk override
@@ -61,4 +82,6 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 '}';
     }
+
+
 }

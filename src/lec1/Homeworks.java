@@ -14,7 +14,7 @@ public class Homeworks {
     //homeworks
 
     //odev 1
-    public class Hw1{
+    public static class Hw1{
         /**
          * calculates two given number according to string's operator.
          *
@@ -119,7 +119,7 @@ public class Homeworks {
     }
 
     //Odev 2
-    public class Hw2{
+    public static class Hw2{
 
 
         /**
