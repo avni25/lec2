@@ -1,5 +1,8 @@
 package lec1;
 
+import com.Major;
+import com.Student;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -151,7 +154,7 @@ public class Homeworks {
                 surname = sc.nextLine();			// surname icin input alir
                 Student s1;							//student nesnesi olusturur
                 try{								// alinan inputlari student nesnesine atar ve listeye ekler
-                    s1 = new Student(id, name, surname);
+                    s1 = new Student(id, name, surname, new Major());
                     s_list.add(s1);
                     count++;
                 }catch(IDnoException e){			// id no uzunluk dogru degilse hata verir.
@@ -217,7 +220,7 @@ public class Homeworks {
                     int id = Integer.parseInt(t_idno.getText());	//idno textboxt textini alir ve int cevirir
                     Student s = null;								// studen nesnesi olusturur
                     try {											//idno uzunluk kontrolu icin try catch
-                        s = new Student(id, t_name.getText(), t_surname.getText());
+                        s = new Student(id, t_name.getText(), t_surname.getText(), new Major());
                         l.add(s); 									//olusturulan student nesnesi fonk parametrisi olan Student listesine eklenir
                         print(s.toString()+ " added to list.");
                     } catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:

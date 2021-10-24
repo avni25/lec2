@@ -1,19 +1,26 @@
-package lec1;
+package com;
+
+import lec1.IDnoException;
 
 import javax.swing.*;
-import java.util.Objects;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Student implements Comparable<Student>{
     private int idno;
     private String name;
     private String surname;
+    private Major major;
+    private ArrayList<Lesson> lessons;
     public static final int idnoLength = 5;   // id no olmasi gereken uzunluk
 
-    public Student (int idno) throws IDnoException{                 // constructor 1 ad, soyad gerekmiyor
-        this(idno, "", "");                             // ad, soyad default olarak bos.
+
+    public Student (int idno) throws IDnoException {                 // constructor 1 ad, soyad gerekmiyor
+        this(idno, "", "", new Major());               // ad, soyad default olarak bos.
+        lessons = new ArrayList<>();
     }
 
-    public Student(int idno, String name, String surname) throws IDnoException {    // constructor 2
+    public Student(int idno, String name, String surname, Major major) throws IDnoException {    // constructor 2
         if(String.valueOf(idno).length() == this.idnoLength)
             this.idno = idno;
         else    // id no olmasi gereken uzunlukta degilse custom hata gonderir
@@ -21,7 +28,8 @@ public class Student implements Comparable<Student>{
 
         this.name = name;
         this.surname = surname;
-
+        this.major = major;
+        this.lessons = major.getLessons();
     }
 
     public String getName() {
@@ -55,6 +63,25 @@ public class Student implements Comparable<Student>{
 
 
     }
+    public Major getMajor() {
+        return major;
+    }
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
+    }
+    public void setLessons(ArrayList<Lesson> lessons) {
+        this.lessons = lessons;
+    }
+    public void addLesson(Lesson les){
+        this.lessons.add(les);
+    }
+    public void removeLesson(Lesson les){
+        this.lessons.remove(les);
+    }
+
 
     public void show(){
         String s = this.toString();
@@ -80,6 +107,7 @@ public class Student implements Comparable<Student>{
                 "idno=" + idno +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", major='"    + major.getName()+'\'' +
                 '}';
     }
 
