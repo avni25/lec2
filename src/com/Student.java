@@ -1,9 +1,9 @@
 package com;
 
 import lec1.IDnoException;
+import les.com.Lesson;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Student implements Comparable<Student>{

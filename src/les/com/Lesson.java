@@ -1,4 +1,4 @@
-package com;
+package les.com;
 
 public class Lesson {
 

@@ -1,5 +1,7 @@
 package com;
 
+import les.com.Lesson;
+
 import java.util.ArrayList;
 
 public class Major {

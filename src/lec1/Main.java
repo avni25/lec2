@@ -1,10 +1,10 @@
 package lec1;
 
 import com.*;
+import les.com.Lesson;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 import static lec1.ShortPrint.*;
