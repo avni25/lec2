@@ -59,6 +59,8 @@ public class Uni extends JFrame{
 
         /**
          * Save student butonuna basildiginda girilen ogranciyi ilgili listeye ekler
+         *
+         *
          * */
         saveStudentButton.addActionListener(new ActionListener() {
             @Override
