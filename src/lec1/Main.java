@@ -3,6 +3,7 @@ package lec1;
 import com.*;
 import err.AmountOfBookException;
 import err.IDnoException;
+import gui.Uni;
 import les.com.Lesson;
 
 import javax.swing.*;
@@ -83,6 +84,9 @@ public class Main {
 
 		AssocProf martin = new AssocProf("T.Martin", "cubukcu",12);
 		print(martin);
+
+		JFrame ui = new Uni("my uni");
+		ui.setVisible(true);
 
 	}
 
