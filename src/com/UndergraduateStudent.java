@@ -1,10 +1,9 @@
 package com;
 
-import lec1.IDnoException;
+import err.IDnoException;
 import les.com.UndergraduateLesson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UndergraduateStudent extends Student {
 

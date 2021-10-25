@@ -1,6 +1,6 @@
 package com;
 
-import lec1.IDnoException;
+import err.IDnoException;
 import les.com.Lesson;
 
 import javax.swing.*;
@@ -88,7 +88,6 @@ public class Student implements Comparable<Student>{
         JOptionPane.showMessageDialog(null,s, "Student",JOptionPane.PLAIN_MESSAGE);
 
     }
-
 
     @Override
     public int compareTo(Student s){

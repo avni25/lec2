@@ -1,11 +1,14 @@
 package lec1;
 
 import com.*;
+import err.AmountOfBookException;
+import err.IDnoException;
 import les.com.Lesson;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 import static lec1.ShortPrint.*;
 
@@ -14,22 +17,18 @@ import static lec1.ShortPrint.*;
 
 public class Main {
 
-	public static void main(String[] args)  throws IDnoException{
+	public static void main(String[] args)  throws IDnoException {
  		print(consoleColors.BLUE);	//console text color set
  		UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 18)); // dialog box font settings
  		UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 14)); // dialog box buttons font settings
 
  		ArrayList<Student> student_list = new ArrayList<>();
-// 		//soru 4
- //		Homeworks.Hw2.addStudents(student_list);
- //		Homeworks.Hw2.printStudentList(student_list);
- //		Homeworks.Hw2.addStudentsUsingGUI(student_list);
-
-// 		// soru 3
-// 		Homeworks.Hw2.findCity();
-
-// 		//soru 2
-// 		Homeworks.Hw2.showEmojis(50,50);
+		ArrayList<Prof> profs = new ArrayList<>();
+		ArrayList<AssocProf> assocProfs = new ArrayList<>();
+		ArrayList<ResearchAssistant> researchAssistants = new ArrayList<>();
+		ArrayList<GraduateStudent> grad_student_list = new ArrayList<>();
+		ArrayList<UndergraduateStudent> undergrad_student_list = new ArrayList<>();
+		ArrayList<PhdStudent> phd_student_list = new ArrayList<>();
 
 		String ug_eem[] = {"Math","Physics","Electronics","Circuit theory"};
 		int ug_credits[] = {5,6,6,5};
@@ -70,9 +69,20 @@ public class Main {
 
 		PhdStudent ps = new PhdStudent(66977, "avni","cubukcu", eem_phd, "my thesis");
 		print(ps.getLessons());
+		print("---------------------------------------------");
 
-		Homeworks.Hw2.addStudentsUsingGUI(student_list);
+		Prof avni = new Prof("avni","cubukcu",0);
+		ArrayList<String> books = new ArrayList<>(Arrays.asList("asd","zxc"));
+		try {
+			avni.setPublishedBooks(books);
+		} catch (AmountOfBookException e) {
+			print(e.getMessage());
+		}
+		print(avni);
+		print("------------------------------------");
 
+		AssocProf martin = new AssocProf("T.Martin", "cubukcu",12);
+		print(martin);
 
 	}
 

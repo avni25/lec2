@@ -1,6 +1,6 @@
 package com;
 
-import lec1.IDnoException;
+import err.IDnoException;
 
 public class PhdStudent extends GraduateStudent{
 

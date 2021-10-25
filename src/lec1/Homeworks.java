@@ -2,6 +2,7 @@ package lec1;
 
 import com.Major;
 import com.Student;
+import err.IDnoException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,12 @@ import static lec1.ShortPrint.print;
 
 public class Homeworks {
     //homeworks
+
+
+    //Odev 3
+    public static class Hw3{
+
+    }
 
     //odev 1
     public static class Hw1{
@@ -128,7 +135,7 @@ public class Homeworks {
         /**
          * Soru 4
          * */
-        public static void addStudents(List<Student> s_list) throws IDnoException{
+        public static void addStudents(List<Student> s_list) throws IDnoException {
             print(consoleColors.BLUE);				//console text color = Blue
             Scanner sc = new Scanner(System.in);
             int howmanyStudent=0;					// kac ogrenci eklenmek isteniyor. default val = 0
