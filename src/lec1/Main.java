@@ -8,10 +8,10 @@ import les.com.Lesson;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import static lec1.ShortPrint.*;
+import static lec1.ShortPrint.print;
 
 
 
@@ -87,6 +87,7 @@ public class Main {
 
 		JFrame ui = new Uni("my uni");
 		ui.setVisible(true);
+
 
 	}
 

@@ -1,17 +1,23 @@
 package gui;
 
-import com.*;
+import com.GraduateStudent;
+import com.Major;
+import com.PhdStudent;
+import com.Student;
 import err.IDnoException;
 import lec1.ShortPrint;
-
-import static lec1.ShortPrint.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+/**
+ * Ogrenci kayit ekrani icin JFrame kutuphaneisnden turetilmis siniftir.
+ * JFrame kutuphanesi ogeleri kullanilarak pencere olusturulmustur.
+ * İlgili alanlar doldurularak ogrenci turune gore bilgileri girilir, kaydedilir ve listelenir
+ *
+ * */
 public class Uni extends JFrame{
     private JPanel panel1;
     private JTextField student_id_textField;
@@ -34,10 +40,15 @@ public class Uni extends JFrame{
     private JTextField phd_thesis_textField;
     private JTextField grad_major_textField;
     private JTextField phd_major_textField;
+    private JButton facultyMembersButton;
     public ArrayList<Student> student_list = new ArrayList<>();
     public ArrayList<GraduateStudent> grad_student_list = new ArrayList<>();
     public ArrayList<PhdStudent> phd_student_list = new ArrayList<>();
 
+    /**
+     * Constructor
+     * @param title pencere ismi
+     * */
     public Uni(String title) {
 
         super(title);
@@ -45,6 +56,10 @@ public class Uni extends JFrame{
         this.setContentPane(panel1);
         this.pack();
 
+
+        /**
+         * Save student butonuna basildiginda girilen ogranciyi ilgili listeye ekler
+         * */
         saveStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,6 +80,10 @@ public class Uni extends JFrame{
                 student_major_textField.setText("");
             }
         });
+
+        /**
+         * Save graduate student butonuna basildiginda girilen ogranciyi ilgili listeye ekler
+         * */
         saveGradStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,6 +105,10 @@ public class Uni extends JFrame{
                 grad_thesis_textField.setText("");
             }
         });
+
+        /**
+         * Save phd student butonuna basildiginda girilen ogranciyi ilgili listeye ekler
+         * */
         savePHDStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -108,22 +131,47 @@ public class Uni extends JFrame{
             }
         });
 
+
+        /**
+         * Students bunonuna tiklandiginda ilgili ogrencileri listeler
+         * */
         studentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("---------------------------------Undergraduate Students List--------------------------------------");
                 ShortPrint.print(student_list);
             }
         });
+
+        /**
+         * Graduate students bunonuna tiklandiginda ilgili ogrencileri listeler
+         * */
         graduateStudentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("-------------------------Graduate Students List----------------------------------------------");
                 ShortPrint.print(grad_student_list);
             }
         });
+
+        /**
+         * PHD students bunonuna tiklandiginda ilgili ogrencileri listeler
+         * */
         PHDStudentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("-------------------------PHD Students List----------------------------------------------");
                 ShortPrint.print(phd_student_list);
+            }
+        });
+
+        //Facult members bunonuna tiklandiginda;
+        facultyMembersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame fm = new FacultyMembers();   // yeni faculty member jframe objesi olusturur. (pencere)
+                fm.setVisible(true);              // yeni pencere (Faculty members) acar
+                Uni.super.setVisible(false);    //onceki student pencerisini kapatir
             }
         });
     }
