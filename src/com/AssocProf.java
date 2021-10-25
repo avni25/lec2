@@ -29,6 +29,14 @@ public class AssocProf extends ResearchAssistant{
         this.managedThesis = managedThesis;
     }
 
+    public int getManagedThesis() {
+        return managedThesis;
+    }
+
+    public void setManagedThesis(int managedThesis) {
+        this.managedThesis = managedThesis;
+    }
+
     @Override
     public String toString() {
         return "Assoc.Prof{" +

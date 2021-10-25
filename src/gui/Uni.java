@@ -19,6 +19,10 @@ import java.util.ArrayList;
  *
  * */
 public class Uni extends JFrame{
+
+    /**
+     * gorsel ogeler
+     * */
     private JPanel panel1;
     private JTextField student_id_textField;
     private JTextField student_name_textField;
@@ -44,6 +48,8 @@ public class Uni extends JFrame{
     public ArrayList<Student> student_list = new ArrayList<>();
     public ArrayList<GraduateStudent> grad_student_list = new ArrayList<>();
     public ArrayList<PhdStudent> phd_student_list = new ArrayList<>();
+
+
 
     /**
      * Constructor
