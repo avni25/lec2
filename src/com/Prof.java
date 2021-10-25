@@ -1,7 +1,8 @@
 package com;
 
-import java.util.ArrayList;
 import err.AmountOfBookException;
+
+import java.util.ArrayList;
 
 
 /**
@@ -22,8 +23,10 @@ public class Prof extends AssocProf{
         super(name, surname, managedThesis);
     }
 
-    public Prof(String name, String surname, ArrayList<String> research_areas, ArrayList<String> publishedArticles, ArrayList<String> publishedBooks, ArrayList<String> courses, int managedThesis) {
+    public Prof(String name, String surname, ArrayList<String> research_areas, ArrayList<String> publishedArticles, ArrayList<String> publishedBooks, ArrayList<String> courses, int managedThesis) throws AmountOfBookException {
         super(name, surname, research_areas, publishedArticles, publishedBooks, courses, managedThesis);
+        if(publishedBooks.size() < 3)
+            throw new AmountOfBookException("Prof must have at least 3 books...");
     }
     /**
      * override method: prof sinifinda minimum yayinlanan kitap sayisi 3 olmali.

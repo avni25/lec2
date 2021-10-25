@@ -3,6 +3,7 @@ package gui;
 import com.AssocProf;
 import com.Prof;
 import com.ResearchAssistant;
+import err.AmountOfBookException;
 import lec1.ShortPrint;
 
 import javax.swing.*;
@@ -52,6 +53,7 @@ public class FacultyMembers extends JFrame{
         this.setContentPane(panel1);
 //        this.setSize(1800,150);
         this.pack();
+        this.setLocationRelativeTo(null);
 
         /**
          * comboBox degistirildigi zaman yapilacak islemler
@@ -98,6 +100,8 @@ public class FacultyMembers extends JFrame{
                              thesis = Integer.parseInt(theisis_textField.getText());    // theisi textini int e donusturur
                         }catch (NumberFormatException ee){
                             System.out.println(ee.getMessage());
+                        }catch(NullPointerException ne){
+                            System.out.println(ne.getMessage());
                         }
                         // alinan inptlarla obje olusturur
                         AssocProf ap = new AssocProf(name_TextField.getText(), surname_textField.getText(), researches, articles, books, courses, thesis);
@@ -107,10 +111,20 @@ public class FacultyMembers extends JFrame{
                         break;
                     case 2:
                         // alinan inptlarla obje olusturur
-                        Prof p = new Prof(name_TextField.getText(), surname_textField.getText(), researches, articles, books, courses, thesis);
-                        prof_list.add(p);               // Prof  listeye ekler
-                        cleanTextFields();              // input textleri temizler
-                        System.out.println("Prof added to List.");
+                        Prof p = null;
+                        try {
+                            p = new Prof(name_TextField.getText(), surname_textField.getText(), researches, articles, books, courses, thesis);
+                            prof_list.add(p);               // Prof  listeye ekler
+                            cleanTextFields();              // input textleri temizler
+                            System.out.println("Prof added to List.");
+                        } catch (AmountOfBookException e1) {
+                            System.out.println(e1.getMessage());
+                            System.out.println("Prof couldn't be added to List.");
+                        }catch(NullPointerException ne){
+                            System.out.println(ne.getMessage());
+                        }
+
+
                         break;
 
                 }

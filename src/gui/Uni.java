@@ -61,7 +61,7 @@ public class Uni extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(panel1);
         this.pack();
-
+        this.setLocationRelativeTo(null);
 
         /**
          * Save student butonuna basildiginda girilen ogranciyi ilgili listeye ekler
@@ -71,15 +71,20 @@ public class Uni extends JFrame{
         saveStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.parseInt(student_id_textField.getText());	//idno textboxt textini alir ve int cevirir
+                int id = 0;
                 Student s = null;								// studen nesnesi olusturur
-                try {											//idno uzunluk kontrolu icin try catch
+                try {
+                    id = Integer.parseInt(student_id_textField.getText());	//idno textboxt textini alir ve int cevirir//idno uzunluk kontrolu icin try catch
                     s = new Student(id, student_name_textField.getText(), student_surname_textField.getText(), new Major(student_major_textField.getText()));
                     student_list.add(s); 									//olusturulan student nesnesi fonk parametrisi olan Student listesine eklenir
                     System.out.println(s+ " added to list.");
                 } catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:
-                    ex.getMessage();
+                    System.out.println(ex.getMessage());
                     System.out.println("unable to add student!");
+                }catch(NullPointerException ne){
+                    System.out.println(ne.getMessage());
+                }catch(NumberFormatException e2){
+                    System.out.println(e2.getMessage());
                 }
 
                 student_id_textField.setText("");		//textbox text sifirla
@@ -95,15 +100,20 @@ public class Uni extends JFrame{
         saveGradStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.parseInt(grad_id_textField.getText());	//idno textboxt textini alir ve int cevirir
+                int id = 0;
                 GraduateStudent gs = null;								// studen nesnesi olusturur
-                try {											//idno uzunluk kontrolu icin try catch
+                try {
+                    id = Integer.parseInt(grad_id_textField.getText());	//idno textboxt textini alir ve int cevirir//idno uzunluk kontrolu icin try catch
                     gs = new GraduateStudent(id, grad_names_textField.getText(), grad_surname_textField.getText(), new Major(grad_major_textField.getText()),grad_thesis_textField.getText());
                     grad_student_list.add(gs); 									//olusturulan student nesnesi fonk parametrisi olan Student listesine eklenir
                     System.out.println(gs+ " added to list.");
-                } catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:
-                    ex.getMessage();
-                    System.out.println("unable to add Grad student!");
+                }catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:
+                    System.out.println(ex.getMessage());
+                    System.out.println("unable to add student!");
+                }catch(NullPointerException ne){
+                    System.out.println(ne.getMessage());
+                }catch(NumberFormatException e2){
+                    System.out.println(e2.getMessage());
                 }
 
                 grad_id_textField.setText("");		//textbox text sifirla
@@ -120,15 +130,20 @@ public class Uni extends JFrame{
         savePHDStudentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.parseInt(phd_id_textField.getText());	//idno textboxt textini alir ve int cevirir
+                int id = 0;
                 PhdStudent phds = null;								// studen nesnesi olusturur
                 try {											//idno uzunluk kontrolu icin try catch
+                    id = Integer.parseInt(phd_id_textField.getText());	//idno textboxt textini alir ve int cevirir
                     phds = new PhdStudent(id, phd_name_textField.getText(), phd_surname_textField.getText(), new Major(phd_major_textField.getText()),phd_thesis_textField.getText());
                     phd_student_list.add(phds); 									//olusturulan student nesnesi fonk parametrisi olan Student listesine eklenir
                     System.out.println(phds+ " added to list.");
                 } catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:
-                    ex.getMessage();
-                    System.out.println("unable to add Phd student!");
+                    System.out.println(ex.getMessage());
+                    System.out.println("unable to add student!");
+                }catch(NullPointerException ne){
+                    System.out.println(ne.getMessage());
+                }catch(NumberFormatException e2){
+                    System.out.println(e2.getMessage());
                 }
 
                 phd_id_textField.setText("");		//textbox text sifirla
