@@ -5,7 +5,6 @@ import com.Major;
 import com.PhdStudent;
 import com.Student;
 import err.IDnoException;
-import lec1.ShortPrint;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -91,6 +90,7 @@ public class Uni extends JFrame{
                 student_name_textField.setText("");		//textbox text sifirla
                 student_surname_textField.setText("");	//textbox text sifirla
                 student_major_textField.setText("");
+                s.showAdded();
             }
         });
 
@@ -121,6 +121,7 @@ public class Uni extends JFrame{
                 grad_surname_textField.setText("");	//textbox text sifirla
                 grad_major_textField.setText("");
                 grad_thesis_textField.setText("");
+                gs.showAdded();
             }
         });
 
@@ -151,6 +152,7 @@ public class Uni extends JFrame{
                 phd_surname_textField.setText("");	//textbox text sifirla
                 phd_major_textField.setText("");
                 phd_thesis_textField.setText("");
+                phds.showAdded();
             }
         });
 
@@ -161,8 +163,8 @@ public class Uni extends JFrame{
         studentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("---------------------------------Undergraduate Students List--------------------------------------");
-                ShortPrint.print(student_list);
+                String text = convertStudentListToString(student_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
@@ -172,8 +174,8 @@ public class Uni extends JFrame{
         graduateStudentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("-------------------------Graduate Students List----------------------------------------------");
-                ShortPrint.print(grad_student_list);
+                String text = convertGradStudentListToString(grad_student_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
@@ -183,8 +185,8 @@ public class Uni extends JFrame{
         PHDStudentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("-------------------------PHD Students List----------------------------------------------");
-                ShortPrint.print(phd_student_list);
+                String text = convertPHDStudentListToString(phd_student_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
@@ -200,7 +202,45 @@ public class Uni extends JFrame{
     }
 
 
+    public String convertStudentListToString(ArrayList<Student> rs){
+        String res ="Students List\n";
+        System.out.println("---------------------------------Students List--------------------------------------");
+        for (int i = 0; i < rs.size(); i++) {
+            res += "[id: "+rs.get(i).getIdno() + " name: "+ rs.get(i).getName()+
+                    ", surname: "+rs.get(i).getSurname()+", "+
+                    "Major: "+rs.get(i).getMajor()+", "+
+                    "Lessons: "+rs.get(i).getLessons().toString()+"]\n";
+        }
+        System.out.println(res);
+        return res;
+    }
 
+    public String convertGradStudentListToString(ArrayList<GraduateStudent> rs){
+        String res ="Graduate Students List\n";
+        System.out.println("---------------------------------Graduate Students List--------------------------------------");
+        for (int i = 0; i < rs.size(); i++) {
+            res += "[id: "+rs.get(i).getIdno() + " name: "+ rs.get(i).getName()+
+                    ", surname: "+rs.get(i).getSurname()+", "+
+                    "Major: "+rs.get(i).getMajor()+", "+
+                    "Lessons "+rs.get(i).getLessons().toString()+", "+
+                    "Thesis: "+rs.get(i).getThesis_name()+"]\n";
+        }
+        System.out.println(res);
+        return res;
+    }
 
+    public String convertPHDStudentListToString(ArrayList<PhdStudent> rs){
+        String res ="PHD Students List\n";
+        System.out.println("---------------------------------PHD Students List--------------------------------------");
+        for (int i = 0; i < rs.size(); i++) {
+            res += "[id: "+rs.get(i).getIdno() + " name: "+ rs.get(i).getName()+
+                    ", surname: "+rs.get(i).getSurname()+", "+
+                    "Major: "+rs.get(i).getMajor()+", "+
+                    "Lessons "+rs.get(i).getLessons().toString()+", "+
+                    "Thesis: "+rs.get(i).getThesis_name()+"]\n";
+        }
+        System.out.println(res);
+        return res;
+    }
 
 }

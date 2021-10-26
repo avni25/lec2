@@ -1,7 +1,8 @@
 package com;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -90,6 +91,17 @@ public class ResearchAssistant {
 
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
+    }
+
+
+    public void show(){
+        String s = this.toString();
+        JOptionPane.showMessageDialog(null,s, "info",JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public void showAdded(){
+        String s = this.toString()+"\nAdded to the list";
+        JOptionPane.showMessageDialog(null,s, "info",JOptionPane.PLAIN_MESSAGE);
     }
 
     @Override

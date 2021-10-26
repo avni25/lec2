@@ -4,7 +4,6 @@ import com.AssocProf;
 import com.Prof;
 import com.ResearchAssistant;
 import err.AmountOfBookException;
-import lec1.ShortPrint;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,18 +38,24 @@ public class FacultyMembers extends JFrame{
     private JLabel thesis_label;
     private JTextArea courses_textArea;
     private JTextField theisis_textField;
+    private JPanel mainPanel;
     public ArrayList<ResearchAssistant> researchAssistant_list = new ArrayList<>();
     public ArrayList<AssocProf> assocProf_list = new ArrayList<>();
     public ArrayList<Prof> prof_list = new ArrayList<>();
+    private String table_columns[] = {"Title","Name","Surname", "Research Field","Articles","Books","Courses", "Thesis"};
 
+    /**
+     * Constructor
+     * */
     public FacultyMembers(){
 
         comboBox1.addItem("Research Assistant");        //pencere acıldiginda comboboxa ogeleri ekler
         comboBox1.addItem("Associate Prof");
         comboBox1.addItem("Prof");
 
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(panel1);
+        this.setContentPane(mainPanel);
 //        this.setSize(1800,150);
         this.pack();
         this.setLocationRelativeTo(null);
@@ -93,6 +98,7 @@ public class FacultyMembers extends JFrame{
                         researchAssistant_list.add(rs);     //research Assistan ı listeye ekler
                         cleanTextFields();                  // input textleri temizler
                         System.out.println("research Assistant added to List.");
+                        rs.showAdded();
                         break;
                     case 1:
 
@@ -108,6 +114,7 @@ public class FacultyMembers extends JFrame{
                         assocProf_list.add(ap);         //Assoc Prof listeye ekler
                         cleanTextFields();              // input textleri temizler
                         System.out.println("Associate Prof added to List.");
+                        ap.showAdded();
                         break;
                     case 2:
                         // alinan inptlarla obje olusturur
@@ -117,6 +124,7 @@ public class FacultyMembers extends JFrame{
                             prof_list.add(p);               // Prof  listeye ekler
                             cleanTextFields();              // input textleri temizler
                             System.out.println("Prof added to List.");
+                            p.showAdded();
                         } catch (AmountOfBookException e1) {
                             System.out.println(e1.getMessage());
                             System.out.println("Prof couldn't be added to List.");
@@ -132,29 +140,45 @@ public class FacultyMembers extends JFrame{
             }
         });
 
-
+        /**
+         * Butona basildiginda research asistanlari listeler
+         * */
         researchAsistantsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                printList(researchAssistant_list);
+                String text = convertRAListToString(researchAssistant_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
+        /**
+         * Butona basildiginda Assoc Proflari listeler
+         * */
         associateProfsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                printAPList(assocProf_list);
+                String text = convertAPListToString(assocProf_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
+
             }
         });
 
+        /**
+         * Butona basildiginda proflari listeler
+         * */
         profsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                printPList(prof_list);
+                String text = convertPListToString(prof_list);
+                JOptionPane.showMessageDialog(null,text, "info",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
+        /**
+         * butona basildiginda bir onceki pencereyi acar.
+         * Bu pencereyi kapatir
+         * */
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -166,6 +190,9 @@ public class FacultyMembers extends JFrame{
         });
     }
 
+    /**
+     * tetx fieldlari temizler
+     * */
     public void cleanTextFields(){
         name_TextField.setText("");
         surname_textField.setText("");
@@ -176,40 +203,70 @@ public class FacultyMembers extends JFrame{
         theisis_textField.setText("");
     }
 
-    public void printList(ArrayList<ResearchAssistant> rs){
+    public String[][]  convertListTo2DArray(ArrayList<AssocProf> l){
+        String arr[][]= new String[l.size()][8];
+        for (int i = 0; i < l.size(); i++) {
+            arr[i][0] = l.get(i).getClass().toString();
+            arr[i][1] = l.get(i).getName();
+            arr[i][2] = l.get(i).getSurname();
+            arr[i][3] = l.get(i).getResearch_areas().toString();
+            arr[i][4] = l.get(i).getPublishedArticles().toString();
+            arr[i][5] = l.get(i).getPublishedBooks().toString();
+            arr[i][6] = l.get(i).getCourses().toString();
+            String s = l.get(i).getClass().toString();
+            if(s.contains("AssocProf")){
+                arr[i][7] = l.get(i).getManagedThesis()+"";
+            }else{
+                arr[i][7] = "";
+            }
+        }
+
+        return arr;
+    }
+
+    public String convertRAListToString(ArrayList<ResearchAssistant> rs){
+        String res ="Reasearch assistants List\n";
         System.out.println("---------------------------------Research Assistants List--------------------------------------");
         for (int i = 0; i < rs.size(); i++) {
-            System.out.println(rs.get(i).getName() + " "+ rs.get(i).getSurname());
-            ShortPrint.print("researches: "+rs.get(i).getResearch_areas());
-            ShortPrint.print("articles: "+rs.get(i).getPublishedArticles());
-            ShortPrint.print("Books: "+rs.get(i).getPublishedBooks());
-            ShortPrint.print("Course: "+rs.get(i).getPublishedBooks());
+            res += "["+rs.get(i).getName() + " "+ rs.get(i).getSurname()+", "+
+                    "researches: "+rs.get(i).getResearch_areas()+", "+
+                    "articles: "+rs.get(i).getPublishedArticles()+", "+
+                    "Books: "+rs.get(i).getPublishedBooks()+", "+
+                    "Course: "+rs.get(i).getPublishedBooks()+"]\n";
         }
+        System.out.println(res);
+        return res;
     }
 
 
-    public void printAPList(ArrayList<AssocProf> rs){
-        System.out.println("---------------------------------Research Assistants List--------------------------------------");
+    public String convertAPListToString(ArrayList<AssocProf> rs){
+        String res ="Associate Prof List List\n";
+        System.out.println("---------------------------------Associate Prof List--------------------------------------");
         for (int i = 0; i < rs.size(); i++) {
-            System.out.println(rs.get(i).getName() + " "+ rs.get(i).getSurname());
-            ShortPrint.print("researches: "+rs.get(i).getResearch_areas());
-            ShortPrint.print("articles: "+rs.get(i).getPublishedArticles());
-            ShortPrint.print("Books: "+rs.get(i).getPublishedBooks());
-            ShortPrint.print("Course: "+rs.get(i).getPublishedBooks());
-            ShortPrint.print("thesis: "+rs.get(i).getManagedThesis());
+            res += "["+rs.get(i).getName() + " "+ rs.get(i).getSurname()+", "+
+                    "researches: "+rs.get(i).getResearch_areas()+", "+
+                    "articles: "+rs.get(i).getPublishedArticles()+", "+
+                    "Books: "+rs.get(i).getPublishedBooks()+", "+
+                    "Course: "+rs.get(i).getPublishedBooks()+
+                    "thesis: "+rs.get(i).getManagedThesis()+"]\n";
         }
+        System.out.println(res);
+        return res;
     }
 
-    public void printPList(ArrayList<Prof> rs){
-        System.out.println("---------------------------------Research Assistants List--------------------------------------");
+    public String convertPListToString(ArrayList<Prof> rs){
+        String res ="Prof List List\n";
+        System.out.println("---------------------------------Prof List--------------------------------------");
         for (int i = 0; i < rs.size(); i++) {
-            System.out.println(rs.get(i).getName() + " "+ rs.get(i).getSurname());
-            ShortPrint.print("researches: "+rs.get(i).getResearch_areas());
-            ShortPrint.print("articles: "+rs.get(i).getPublishedArticles());
-            ShortPrint.print("Books: "+rs.get(i).getPublishedBooks());
-            ShortPrint.print("Course: "+rs.get(i).getPublishedBooks());
-            ShortPrint.print("thesis: "+rs.get(i).getManagedThesis());
+            res += "["+rs.get(i).getName() + " "+ rs.get(i).getSurname()+", "+
+                    "researches: "+rs.get(i).getResearch_areas()+", "+
+                    "articles: "+rs.get(i).getPublishedArticles()+", "+
+                    "Books: "+rs.get(i).getPublishedBooks()+", "+
+                    "Course: "+rs.get(i).getPublishedBooks()+
+                    "thesis: "+rs.get(i).getManagedThesis()+"]\n";
         }
+        System.out.println(res);
+        return res;
     }
 
 }

@@ -86,7 +86,11 @@ public class Student implements Comparable<Student>{
     public void show(){
         String s = this.toString();
         JOptionPane.showMessageDialog(null,s, "Student",JOptionPane.PLAIN_MESSAGE);
+    }
 
+    public void showAdded(){
+        String s = this.toString()+"\nAdded to the list";
+        JOptionPane.showMessageDialog(null,s, "Student",JOptionPane.PLAIN_MESSAGE);
     }
 
     @Override

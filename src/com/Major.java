@@ -21,12 +21,18 @@ public class Major {
         this(name, 0, 0);
         this.lessons = new ArrayList<>();
     }
-
     public Major(String name, int duration, int degree) {
         this.name = name;
         this.duration = duration;
         this.degree = degree;
         this.lessons = new ArrayList<>();
+    }
+
+    public Major(String name, int duration, int degree, ArrayList<Lesson> lessons) {
+        this.name = name;
+        this.duration = duration;
+        this.degree = degree;
+        this.lessons = lessons;
     }
 
     public int getDegree() {
