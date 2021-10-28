@@ -80,9 +80,9 @@ public class Uni extends JFrame{
                 } catch (IDnoException ex) {					//id no uzunluk olmasi gereken uzunlukta degilse:
                     System.out.println(ex.getMessage());
                     System.out.println("unable to add student!");
-                }catch(NullPointerException ne){
+                }catch(NullPointerException ne){                //id no text box bos ise
                     System.out.println(ne.getMessage());
-                }catch(NumberFormatException e2){
+                }catch(NumberFormatException e2){               //idno text box rakam degilse
                     System.out.println(e2.getMessage());
                 }
 

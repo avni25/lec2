@@ -125,10 +125,10 @@ public class FacultyMembers extends JFrame{
                             cleanTextFields();              // input textleri temizler
                             System.out.println("Prof added to List.");
                             p.showAdded();
-                        } catch (AmountOfBookException e1) {
+                        } catch (AmountOfBookException e1) {        // kitaplar 3 ten az ise
                             System.out.println(e1.getMessage());
                             System.out.println("Prof couldn't be added to List.");
-                        }catch(NullPointerException ne){
+                        }catch(NullPointerException ne){            // text box bos ise
                             System.out.println(ne.getMessage());
                         }
 
