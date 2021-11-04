@@ -43,6 +43,20 @@ public class ShortPrint {
                 s += list.get(i)+", ";
         System.out.print(s);
     }
+    public static <T> void print(T[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
     public static void print(int[] arr){
         String s ="{";
         for(int i=0;i<arr.length;i++)
@@ -106,5 +120,103 @@ public class ShortPrint {
                 s += arr[i]+", ";
         System.out.print(s);
     }
-
+    // 2d arrays
+    public static void print(int[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(double[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(char[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(boolean[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(float[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(long[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
+    public static void print(byte[][] arr){
+        String s="{";
+        for (int i = 0; i < arr.length; i++) {
+            s += "{";
+            for (int j = 0; j < arr[i].length; j++) {
+                if(j != arr[i].length-1) s += arr[i][j]+", ";
+                else s += arr[i][j]+"";
+            }
+            if(i != arr.length-1) s += "},\n";
+            else s += "}\n";
+        }
+        s +="}";
+        System.out.println(s);
+    }
 }

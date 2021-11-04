@@ -2,14 +2,13 @@ package lec1;
 
 import com.Major;
 import err.IDnoException;
-import gui.Uni;
 import les.com.Lesson;
-
+import gui.Uni;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
-import static lec1.ShortPrint.print;
+import static lec1.ShortPrint.*;
 
 
 
@@ -52,6 +51,7 @@ public class Main {
 
 		JFrame ui = new Uni("my uni");
 		ui.setVisible(true);
+
 
 
 
