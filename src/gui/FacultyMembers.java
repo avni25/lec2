@@ -39,6 +39,7 @@ public class FacultyMembers extends JFrame{
     private JTextArea courses_textArea;
     private JTextField theisis_textField;
     private JPanel mainPanel;
+    private JLabel bookinfo;
     public ArrayList<ResearchAssistant> researchAssistant_list = new ArrayList<>();
     public ArrayList<AssocProf> assocProf_list = new ArrayList<>();
     public ArrayList<Prof> prof_list = new ArrayList<>();

@@ -44,6 +44,7 @@ public class Uni extends JFrame{
     private JTextField grad_major_textField;
     private JTextField phd_major_textField;
     private JButton facultyMembersButton;
+    private JLabel idinfo;
     public ArrayList<Student> student_list = new ArrayList<>();
     public ArrayList<GraduateStudent> grad_student_list = new ArrayList<>();
     public ArrayList<PhdStudent> phd_student_list = new ArrayList<>();

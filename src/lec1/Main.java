@@ -60,6 +60,7 @@ public class Main {
 
 
 
+
 	public static int generateRandomNumber(int max){
 		return (int)(Math.random()*max);
 	}
